@@ -1,0 +1,13 @@
+<section class="mt-2">
+    <input type="text" [(ngModel)]="name">
+    <p>{{name}}</p>
+
+    <div class="mt-2">
+        <input type="checkbox" [(ngModel)]="enabled"  id="defaultCheck1">
+        <label for="defaultCheck1">
+            enabled button
+        </label>
+    </div>
+
+    <button type="button" class="btn btn-info" [disabled]="enabled" (click)="clickButton()">Save</button>
+</section>

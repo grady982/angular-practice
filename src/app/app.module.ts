@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherIllustrationComponent, WeatherImagePipe } from './weather-illustration/weather-illustration.component';
 import { FormsModule } from '@angular/forms';
+import { WeatherComponent } from './weather/weather.component';
+import { PracticeFormComponent } from './practice-form/practice-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherIllustrationComponent,
-    WeatherImagePipe
+    WeatherImagePipe,
+    WeatherComponent,
+    PracticeFormComponent
   ],
   imports: [
     BrowserModule,

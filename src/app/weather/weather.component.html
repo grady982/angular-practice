@@ -1,0 +1,63 @@
+<div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand d-flex flex-row">
+        <h3 class="text-primary"><i class="far fa-sun"></i> Your Local Weather Forecast</h3>  
+      </div>
+    </nav>
+    <section class="mt-2">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" 
+          data-toggle="dropdown" 
+          aria-haspopup="true" 
+          aria-expanded="false">
+          {{curCity || 'City Name'}}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" 
+            href="javascript:void(0)"
+            *ngFor="let city of cityList"
+            (click)="setCurCity(city)">{{city}}</a>
+        </div>
+      </div>
+      <hr>
+      <div class="card" *ngIf="curCity">
+        <div class="card-header">
+          Current weather
+        </div>
+        <div class="card-body" *ngIf="!isLoading; else tplLoading">
+          <h5 class="card-title">{{curCity}}</h5>
+          <h6>{{time}}</h6>
+          <h6>{{weather.weather[0].main}} {{weather.weather[0].description}}</h6>
+          <div class="d-flex flex-row" style="margin-top: 20px">
+            <app-weather-illustration class="col-6" [weather]="weather.weather[0].main" [temp]="weather.main.temp"></app-weather-illustration>
+            <div class="col-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="showMore"  id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Show more
+                </label>
+              </div>
+              <ul *ngIf="showMore">
+                <li>Feels Like: {{weather.main.feels_like}}</li>
+                <li>Temp Min: {{weather.main.temp_min}}</li>
+                <li>Temp Max: {{weather.main.temp_max}}</li>
+                <li>Presure: {{weather.main.presure}}</li>
+                <li>Humidity: {{weather.main.humidity}}</li>
+              </ul>
+            </div>
+          </div>
+  
+          <button type="button" class="btn btn-primary mt-4" [disabled]="true" 
+            data-toggle="tooltip" data-placement="top" title="comming soon..">Next 7 days</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  
+  <ng-template #tplLoading>
+    <div class="d-flex flex-row justify-content-center">
+      ...Loading
+    </div>
+  </ng-template>
+  
