@@ -1,0 +1,18 @@
+
+<button type="button" class="btn btn-info mr-2" (click)="addNewNote()">add Note</button>
+<button type="button" class="btn btn-info" (click)="getNotes()">get Notes</button>
+
+<div *ngFor="let note of noteList">
+	<h3>{{note.data().title}}</h3>
+	<h3>{{note.data().category}}</h3>
+	<article class="markdown-body">
+		<div [innerHTML]="note.data().md | marked"></div>
+	</article>
+	<h4>{{note.data().create_time}}</h4>
+</div>
+
+
+<article class="markdown-body">
+	<div [innerHTML]="markdownString | marked"></div>
+</article>
+

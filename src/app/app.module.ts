@@ -5,9 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherIllustrationComponent, WeatherImagePipe } from './weather-illustration/weather-illustration.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeatherComponent } from './weather/weather.component';
 import { PracticeFormComponent } from './practice-form/practice-form.component';
+import { BasicHighlightDirective } from './basic-highlight.directive';
+import { TestComponent } from './test/test.component';
+import { MarkedPipe } from './share/marked.pipe';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from './environment';
 
 @NgModule({
   declarations: [
@@ -15,13 +21,19 @@ import { PracticeFormComponent } from './practice-form/practice-form.component';
     WeatherIllustrationComponent,
     WeatherImagePipe,
     WeatherComponent,
-    PracticeFormComponent
+    PracticeFormComponent,
+    BasicHighlightDirective,
+    TestComponent,
+    MarkedPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
