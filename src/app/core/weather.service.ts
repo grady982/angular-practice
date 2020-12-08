@@ -15,4 +15,8 @@ export class WeatherService {
   getCityWeather(city: string) {
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},tw&appid=${this.API_KEY}`).toPromise();
   }
+
+  getNext5DaysWeather(city: string) {
+    return this.http.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city},tw&appid=${this.API_KEY}`).toPromise();
+  }
 }
