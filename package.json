@@ -29,7 +29,7 @@
     "jquery": "^3.5.1",
     "markdown-air": "0.0.4",
     "markdown-splendor": "^1.0.1",
-    "marked": "^1.2.5",
+    "marked": "^2.0.0",
     "moment": "^2.27.0",
     "prismjs": "^1.22.0",
     "rxjs": "~6.5.4",
